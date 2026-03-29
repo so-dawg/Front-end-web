@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+/* Tailwind CSS Example Styles */
+
+/* Custom utility classes using Tailwind directives */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none;
+  }
+}
+
+/* Custom layer for utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Example: Responsive container styles */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Example: Dark mode support */
+.dark .card-dark {
+  @apply bg-gray-800 border-gray-700 text-white;
+}
+
+.main {
+  @apply min-h-screen bg-gray-100 flex items-center justify-center;
+}
+
+.main1 {
+  @apply text-3xl font-bold text-blue-600;
+}
