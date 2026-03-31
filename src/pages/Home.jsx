@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
 function Home() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slideToShow: 1,
+    slideToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: true,
+  };
+
   return (
     <div className="home">
       <section className="hero">
-        <div className="container-custom">
-          <h1 className="hero-title text-shadow">Welcome to LaptopStore</h1>
-          <p className="hero-subtitle">Discover amazing laptops at unbeatable prices</p>
-          <Link to="/shop" className="btn-primary btn-primary-lg">Shop Laptops</Link>
-        </div>
+        <Slider {...settings}>
+          <div>
+            <img src="" alt="" />
+          </div>
+          <div>
+            <img src="" alt="" />
+          </div>
+        </Slider>
       </section>
 
       <section className="features">
@@ -17,7 +32,9 @@ function Home() {
             <div className="feature-card">
               <div className="feature-icon">🚚</div>
               <h3 className="feature-title">Free Shipping</h3>
-              <p className="feature-desc">Free shipping on all orders over $50</p>
+              <p className="feature-desc">
+                Free shipping on all orders over $50
+              </p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">💳</div>
@@ -44,12 +61,16 @@ function Home() {
                 </div>
                 <h3 className="product-name">Laptop {item}</h3>
                 <p className="product-price">$999.99</p>
-                <Link to={`/product/${item}`} className="btn-primary btn-block">View Details</Link>
+                <Link to={`/product/${item}`} className="btn-primary btn-block">
+                  View Details
+                </Link>
               </div>
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link to="/shop" className="btn-secondary">View All Laptops</Link>
+            <Link to="/shop" className="btn-secondary">
+              View All Laptops
+            </Link>
           </div>
         </div>
       </section>
@@ -57,9 +78,15 @@ function Home() {
       <section className="newsletter">
         <div className="container-custom">
           <h2 className="section-title">Subscribe to Our Newsletter</h2>
-          <p className="mb-8 opacity-90">Get the latest updates on new products and upcoming sales</p>
+          <p className="mb-8 opacity-90">
+            Get the latest updates on new products and upcoming sales
+          </p>
           <div className="newsletter-form">
-            <input type="email" placeholder="Enter your email" className="input newsletter-input" />
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="input newsletter-input"
+            />
             <button className="btn-secondary">Subscribe</button>
           </div>
         </div>
