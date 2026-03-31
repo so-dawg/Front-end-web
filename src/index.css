@@ -267,3 +267,7 @@
 .shop-empty-text {
   @apply text-xl text-gray-500;
 }
+
+.slider-handle {
+  @apply w-full h-[400px] object-cover;
+}
