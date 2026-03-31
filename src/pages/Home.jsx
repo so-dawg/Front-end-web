@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <div className="home">
-      <section>
+      <section className="hero">
         <Slider {...settings}>
           <div className="slider-handle">
             <img
