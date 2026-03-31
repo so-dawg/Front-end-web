@@ -9,14 +9,18 @@ function ProductDetail() {
     return (
       <div className="product-not-found">
         <h1 className="page-title">Product Not Found</h1>
-        <Link to="/shop" className="btn-primary">Back to Shop</Link>
+        <Link to="/shop" className="btn-primary">
+          Back to Shop
+        </Link>
       </div>
     );
   }
 
   return (
     <div className="product-detail-section">
-      <Link to="/shop" className="back-link">← Back to Shop</Link>
+      <Link to="/shop" className="back-link">
+        ← Back to Shop
+      </Link>
       <div className="product-detail-grid">
         <div className="product-image-lg">
           <span className="text-9xl text-gray-400">💻</span>
@@ -27,21 +31,43 @@ function ProductDetail() {
           <div className="product-info">
             <span className="product-price-lg">${product.price}</span>
             <span className="product-rating">★ {product.rating}</span>
-            <span className={product.inStock ? "badge-in" : "badge-out"}>{product.inStock ? "In Stock" : "Out of Stock"}</span>
+            <span className={product.inStock ? "badge-in" : "badge-out"}>
+              {product.inStock ? "In Stock" : "Out of Stock"}
+            </span>
           </div>
           <div className="specs">
             <h2 className="specs-title">Specifications</h2>
             <dl className="grid-specs">
-              <div><dt className="spec-label">Processor</dt><dd className="spec-value">{product.specs.processor}</dd></div>
-              <div><dt className="spec-label">RAM</dt><dd className="spec-value">{product.specs.ram}</dd></div>
-              <div><dt className="spec-label">Storage</dt><dd className="spec-value">{product.specs.storage}</dd></div>
-              <div><dt className="spec-label">Display</dt><dd className="spec-value">{product.specs.display}</dd></div>
-              <div className="col-span-2"><dt className="spec-label">Graphics</dt><dd className="spec-value">{product.specs.graphics}</dd></div>
+              <div>
+                <dt className="spec-label">Processor</dt>
+                <dd className="spec-value">{product.specs.processor}</dd>
+              </div>
+              <div>
+                <dt className="spec-label">RAM</dt>
+                <dd className="spec-value">{product.specs.ram}</dd>
+              </div>
+              <div>
+                <dt className="spec-label">Storage</dt>
+                <dd className="spec-value">{product.specs.storage}</dd>
+              </div>
+              <div>
+                <dt className="spec-label">Display</dt>
+                <dd className="spec-value">{product.specs.display}</dd>
+              </div>
+              <div className="col-span-2">
+                <dt className="spec-label">Graphics</dt>
+                <dd className="spec-value">{product.specs.graphics}</dd>
+              </div>
             </dl>
           </div>
-          <button disabled={!product.inStock} className={`btn-primary btn-block py-3 text-lg ${!product.inStock ? "opacity-50 cursor-not-allowed" : ""}`}>
-            {product.inStock ? "Add to Cart" : "Out of Stock"}
-          </button>
+          <Link to="/checkout">
+            <button
+              disabled={!product.inStock}
+              className={`btn-primary btn-block py-3 text-lg ${!product.inStock ? "opacity-50 cursor-not-allowed" : ""}`}
+            >
+              {product.inStock ? "Buy now" : "Out of Stock"}
+            </button>
+          </Link>
         </div>
       </div>
     </div>

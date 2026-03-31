@@ -15,7 +15,9 @@ function ProductCard({ product }) {
       <p className={product.inStock ? "product-stock-in" : "product-stock-out"}>
         {product.inStock ? "In Stock" : "Out of Stock"}
       </p>
-      <Link to={`/product/${product.id}`} className="btn-primary btn-block">View Details</Link>
+      <Link to={`/product/${product.id}`} className="btn-primary btn-block">
+        View Details
+      </Link>
     </div>
   );
 }

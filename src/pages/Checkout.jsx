@@ -23,11 +23,22 @@ function Checkout() {
         <div className="card">
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
           <div className="order-summary">
-            <div className="summary-row"><span>Subtotal</span><span>$0.00</span></div>
-            <div className="summary-row"><span>Shipping</span><span>Free</span></div>
-            <div className="summary-total"><span>Total</span><span>$0.00</span></div>
+            <div className="summary-row">
+              <span>Subtotal</span>
+              <span>$0.00</span>
+            </div>
+            <div className="summary-row">
+              <span>Shipping</span>
+              <span>Free</span>
+            </div>
+            <div className="summary-total">
+              <span>Total</span>
+              <span>$0.00</span>
+            </div>
           </div>
-          <Link to="/order-complete" className="btn-primary btn-block">Place Order</Link>
+          <Link to="/order-complete" className="btn-primary btn-block">
+            Place Order
+          </Link>
         </div>
       </div>
     </div>
