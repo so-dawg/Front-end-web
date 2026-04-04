@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import laptop1 from "../Assets/laptop1.jpg";
+import laptop2 from "../Assets/laptop2.jpg";
 
 function Home() {
   const settings = {
@@ -20,16 +22,10 @@ function Home() {
       <section className="hero">
         <Slider {...settings}>
           <div className="slider-handle">
-            <img
-              src="https://imgs.search.brave.com/nJyiTlzJAXxcfWTg4TzGSWg-8bWJUDGihn0OvJYAP_w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jMS5u/ZXdlZ2dpbWFnZXMu/Y29tL3Byb2R1Y3Rp/bWFnZS9uYjMwMC8z/NC0yMzYtNjQ3LTA5/LmpwZw"
-              alt="laptop1"
-            />
+            <img src={laptop1} alt="laptop1" />
           </div>
           <div className="slider-handle">
-            <img
-              src="https://imgs.search.brave.com/OBimUqnpfdbXyI6z9jVparWShcMQkG4_RycMnAkkTk8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iZmFz/c2V0LmNvc3Rjby1z/dGF0aWMuY29tLzU2/TzNIWFo5L2F0Lzhi/cGszdnBtajlwdjZ4/ajZ0cnBibmtjLzE2/aW4tbGFwdG9wcy1j/LnBuZz9hdXRvPXdl/YnAmZm9ybWF0PWpw/Zw"
-              alt="laptop2"
-            />
+            <img src={laptop2} alt="laptop2" />
           </div>
         </Slider>
       </section>

@@ -2,54 +2,6 @@
 
 /* Custom classes - Tailwind doesn't have these */
 
-/* Component classes */
-.header {
-  @apply bg-white shadow-md;
-}
-.header-nav {
-  @apply container mx-auto px-4 py-4;
-}
-.header-content {
-  @apply flex items-center justify-between;
-}
-.header-logo {
-  @apply text-2xl font-bold text-blue-600;
-}
-.header-menu {
-  @apply flex space-x-6 list-none m-0 p-0;
-}
-.header-link {
-  @apply text-gray-700 hover:text-blue-600 transition;
-}
-
-.footer {
-  @apply bg-gray-800 text-white py-8;
-}
-.footer-content {
-  @apply container mx-auto px-4;
-}
-.footer-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
-}
-.footer-title {
-  @apply text-xl font-bold mb-4;
-}
-.footer-text {
-  @apply text-gray-400;
-}
-.footer-heading {
-  @apply font-semibold mb-4;
-}
-.footer-links {
-  @apply space-y-2 text-gray-400;
-}
-.footer-link {
-  @apply hover:text-white transition;
-}
-.footer-bottom {
-  @apply border-t border-gray-700 mt-8 pt-4 text-center text-gray-400;
-}
-
 .btn-primary {
   @apply bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium inline-block text-center;
 }
@@ -72,17 +24,17 @@
 .feature-card {
   @apply bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow text-center;
 }
-.filter-card {
-  @apply bg-white rounded-xl shadow-md p-6 border border-gray-100 mb-6;
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition font-medium inline-block text-center;
 }
-
-.input {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition;
+.btn-block {
+  @apply w-full block;
 }
 
 .container-custom {
   @apply container mx-auto px-4;
 }
+
 .grid-3 {
   @apply grid grid-cols-1 md:grid-cols-3 gap-8;
 }
@@ -97,9 +49,6 @@
 }
 .grid-products {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
-}
-.grid-filter {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
 }
 
 .flex-center {
@@ -183,9 +132,6 @@
 }
 .feature-desc {
   @apply text-gray-600;
-}
-.filter-label {
-  @apply block text-sm font-medium text-gray-700 mb-2;
 }
 
 .specs {
