@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import laptop1 from "../Assets/laptop1.jpg";
 import laptop2 from "../Assets/laptop2.jpg";
+import { products } from "../data/products";
 
 function Home() {
   const settings = {
@@ -16,6 +17,11 @@ function Home() {
     autoplaySpeed: 3000,
     arrows: true,
   };
+
+  const trendingProducts = products
+    .filter((p) => p.inStock && p.rating >= 4.5)
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 4);
 
   return (
     <div className="home">
@@ -30,23 +36,55 @@ function Home() {
         </Slider>
       </section>
 
+      {/* Trending Products Section */}
+      <section className="trending-section">
+        <div className="container-custom">
+          <div className="section-header">
+            <h2 className="section-title">Trending Now</h2>
+            <Link to="/shop" className="view-all-link">
+              View All <span className="arrow">→</span>
+            </Link>
+          </div>
+          <div className="grid-4">
+            {trendingProducts.map((product) => (
+              <div key={product.id} className="trending-card">
+                <div className="product-image">
+                  <span className="text-4xl text-gray-400">Laptop</span>
+                </div>
+                <div className="trending-info">
+                  <p className="trending-brand">{product.brand}</p>
+                  <h3 className="trending-name">{product.name}</h3>
+                  <div className="trending-rating">
+                    <span className="stars">{"★".repeat(Math.floor(product.rating))}</span>
+                    <span className="rating-value">{product.rating}</span>
+                  </div>
+                  <div className="trending-footer">
+                    <p className="product-price">${product.price.toFixed(2)}</p>
+                    <Link to={`/product/${product.id}`} className="btn-primary">
+                      Buy Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="features">
         <div className="container-custom">
           <div className="grid-3">
             <div className="feature-card">
-              <div className="feature-icon">🚚</div>
               <h3 className="feature-title">Free Shipping</h3>
               <p className="feature-desc">
                 Free shipping on all orders over $50
               </p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">💳</div>
               <h3 className="feature-title">Secure Payment</h3>
               <p className="feature-desc">100% secure payment processing</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">↩️</div>
               <h3 className="feature-title">Easy Returns</h3>
               <p className="feature-desc">30-day hassle-free return policy</p>
             </div>
@@ -61,7 +99,7 @@ function Home() {
             {[1, 2, 3, 4].map((item) => (
               <div key={item} className="product-card">
                 <div className="product-image">
-                  <span className="text-4xl text-gray-400">💻</span>
+                  <span className="text-4xl text-gray-400">Laptop</span>
                 </div>
                 <h3 className="product-name">Laptop {item}</h3>
                 <p className="product-price">$999.99</p>
