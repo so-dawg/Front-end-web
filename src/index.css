@@ -62,7 +62,7 @@
 }
 
 .hero {
-  @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 text-center;
+  @apply bg-gradient-to-r bg-blue-600 text-white py-20 text-center;
 }
 .features {
   @apply py-16 bg-white;
@@ -124,9 +124,6 @@
   @apply flex items-center gap-4 mb-6;
 }
 
-.feature-icon {
-  @apply text-4xl mb-4;
-}
 .feature-title {
   @apply text-xl font-semibold mb-2;
 }
@@ -215,5 +212,75 @@
 }
 
 .hero .slider-handle img {
-  @apply w-full h-[500px] object-cover;
+  @apply w-full h-[500px] md:h-[700px] lg:h-[900px] object-cover;
+}
+
+/* ===== TRENDING SECTION ===== */
+.trending-section {
+  @apply py-16 bg-gradient-to-b from-white to-gray-50;
+}
+
+.section-header {
+  @apply flex items-center justify-between mb-10;
+}
+
+.section-header .section-title {
+  @apply text-left mb-0;
+}
+
+.view-all-link {
+  @apply text-blue-600 hover:text-blue-700 font-medium text-sm no-underline hover:no-underline flex items-center gap-1 transition;
+}
+
+.view-all-link .arrow {
+  @apply transition-transform duration-200;
+}
+
+.view-all-link:hover .arrow {
+  @apply translate-x-1;
+}
+
+.trending-card {
+  @apply bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden;
+  position: relative;
+}
+
+.trending-card:hover {
+  transform: translateY(-4px);
+}
+
+.trending-info {
+  @apply p-4;
+}
+
+.trending-brand {
+  @apply text-xs text-gray-500 font-medium uppercase tracking-wide mb-1;
+}
+
+.trending-name {
+  @apply font-semibold text-base mb-2 line-clamp-1;
+}
+
+.trending-rating {
+  @apply flex items-center gap-2 mb-3;
+}
+
+.trending-rating .stars {
+  @apply text-yellow-400 text-sm;
+}
+
+.trending-rating .rating-value {
+  @apply text-sm text-gray-500 font-medium;
+}
+
+.trending-footer {
+  @apply flex items-center justify-between;
+}
+
+.trending-footer .product-price {
+  @apply text-xl font-bold text-blue-600 mb-0;
+}
+
+.trending-footer .btn-primary {
+  @apply px-4 py-2 text-sm;
 }

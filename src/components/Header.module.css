@@ -1,25 +1,345 @@
 @import "tailwindcss";
 
+/* ===== HEADER ===== */
 .header {
-  @apply bg-white shadow-md;
+  @apply bg-white shadow-sm sticky top-0 z-50;
+  transition: box-shadow 0.3s ease;
 }
 
-.headerNav {
-  @apply container mx-auto px-4 py-4;
+.headerScrolled {
+  @apply shadow-lg;
 }
 
-.headerContent {
-  @apply flex items-center justify-between;
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcementBar {
+  @apply bg-gradient-to-r from-yellow-500 to-red-500 text-white py-2;
 }
 
-.headerLogo {
-  @apply text-2xl font-bold text-blue-600;
+.announcementContent {
+  @apply container mx-auto px-4 flex items-center justify-between;
 }
 
-.headerMenu {
-  @apply flex space-x-6 list-none m-0 p-0;
+.announcementText {
+  @apply text-sm text-center flex-1;
 }
 
-.headerLink {
-  @apply text-gray-700 hover:text-blue-600 transition;
+.announcementClose {
+  @apply text-white hover:text-gray-200 transition ml-4;
+  font-size: 14px;
+}
+
+/* ===== MAIN HEADER ===== */
+.mainHeader {
+  @apply border-b border-gray-100;
+}
+
+.headerContainer {
+  @apply container mx-auto px-4 py-4 flex items-center justify-between gap-6;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  @apply flex items-center gap-3 no-underline hover:no-underline flex-shrink-0;
+}
+
+.logoIcon {
+  @apply w-8 h-8 text-blue-600;
+}
+
+.logoText {
+  @apply flex flex-col;
+}
+
+.logoMain {
+  @apply text-2xl font-bold text-gray-900 leading-tight;
+}
+
+.logoTagline {
+  @apply text-xs text-gray-500 font-medium tracking-wide;
+}
+
+/* ===== SEARCH BAR ===== */
+.searchContainer {
+  @apply flex-1 max-w-2xl transition-all duration-300;
+}
+
+.searchForm {
+  @apply relative flex items-center;
+}
+
+.searchInput {
+  @apply w-full px-5 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+}
+
+.searchInput::placeholder {
+  @apply text-gray-400;
+}
+
+.searchButton {
+  @apply absolute right-2 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== HEADER ACTIONS ===== */
+.headerActions {
+  @apply flex items-center gap-3 flex-shrink-0;
+}
+
+.actionButton {
+  @apply flex flex-col items-center justify-center p-2 text-gray-700 hover:text-blue-600 transition no-underline hover:no-underline;
+  min-width: 50px;
+}
+
+.searchToggleBtn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .searchToggleBtn {
+    @apply flex;
+  }
+}
+
+.actionLabel {
+  @apply text-xs mt-1 font-medium;
+}
+
+.cartButton {
+  @apply flex flex-col items-center justify-center p-2 text-gray-700 hover:text-blue-600 transition no-underline hover:no-underline relative;
+  min-width: 50px;
+}
+
+.cartIcon {
+  @apply text-xl;
+}
+
+.cartBadge {
+  @apply absolute -top-1 right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center;
+}
+
+/* ===== MOBILE MENU BUTTON ===== */
+.mobileMenuButton {
+  @apply hidden flex-col items-center justify-center p-2 hover:bg-gray-100 rounded-lg transition;
+}
+
+.hamburger {
+  @apply flex flex-col justify-between w-6 h-5;
+}
+
+.hamburger span {
+  @apply block h-0.5 bg-gray-700 rounded transition-all duration-300;
+}
+
+.hamburgerActive span:nth-child(1) {
+  @apply rotate-45 translate-y-2;
+}
+
+.hamburgerActive span:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburgerActive span:nth-child(3) {
+  @apply -rotate-45 -translate-y-2;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navBar {
+  @apply bg-white border-b border-gray-100;
+}
+
+.navContainer {
+  @apply container mx-auto px-4 flex items-center justify-between;
+}
+
+.navMenu {
+  @apply flex items-center gap-1 list-none m-0 p-0;
+}
+
+.navItem {
+  @apply relative;
+}
+
+.navLink {
+  @apply px-4 py-4 text-sm font-medium text-gray-700 hover:text-blue-600 transition no-underline hover:no-underline block;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  @apply absolute bottom-0 left-4 right-4 h-0.5 bg-blue-600 scale-x-0 transition-transform duration-200;
+}
+
+.navLink:hover::after {
+  @apply scale-x-100;
+}
+
+.hasDropdown {
+  @apply flex items-center gap-1 bg-transparent border-none cursor-pointer;
+}
+
+.dropdownArrow {
+  @apply text-xs transition-transform duration-200;
+  font-size: 10px;
+}
+
+/* ===== MEGA MENU ===== */
+.megaMenu {
+  @apply absolute top-full left-0 bg-white shadow-2xl rounded-xl border border-gray-100 p-6 z-50;
+  min-width: 600px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.megaMenuGrid {
+  @apply grid grid-cols-2 gap-3 mb-4;
+}
+
+.megaMenuItem {
+  @apply flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition no-underline;
+}
+
+.megaMenuName {
+  @apply text-sm font-medium text-gray-800;
+}
+
+.megaMenuFooter {
+  @apply pt-4 border-t border-gray-100 text-center;
+}
+
+.megaMenuLink {
+  @apply text-blue-600 hover:text-blue-700 font-medium text-sm no-underline hover:no-underline;
+}
+
+/* ===== TRUST BADGE ===== */
+.navRight {
+  @apply flex items-center gap-4;
+}
+
+.trustBadge {
+  @apply text-xs text-gray-500 font-medium px-3 py-1.5 bg-green-50 text-green-700 rounded-full;
+}
+
+/* ===== MOBILE MENU ===== */
+.mobileMenu {
+  @apply fixed top-0 right-0 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out;
+  width: 320px;
+  max-width: 100vw;
+  overflow-y: auto;
+}
+
+.mobileMenuOpen {
+  @apply translate-x-0;
+}
+
+.mobileMenuContent {
+  @apply p-6;
+}
+
+.mobileSearch {
+  @apply mb-6;
+}
+
+.mobileSearch form {
+  @apply flex gap-2;
+}
+
+.mobileSearchInput {
+  @apply flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.mobileSearchButton {
+  @apply px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition;
+}
+
+.mobileNavMenu {
+  @apply list-none m-0 p-0 space-y-1;
+}
+
+.mobileNavMenu li a {
+  @apply block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition no-underline font-medium;
+}
+
+.mobileMenuFooter {
+  @apply mt-6 pt-6 border-t border-gray-100 space-y-3;
+}
+
+.mobileFooterLink {
+  @apply block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition no-underline font-medium;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .searchContainer {
+    display: none;
+  }
+
+  .actionLabel {
+    display: none;
+  }
+
+  .actionButton {
+    @apply p-3;
+  }
+
+  .cartButton {
+    @apply p-3;
+  }
+}
+
+@media (max-width: 768px) {
+  .navBar {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    @apply flex;
+  }
+
+  .logoMain {
+    @apply text-xl;
+  }
+
+  .logoTagline {
+    display: none;
+  }
+
+  .announcementText {
+    @apply text-xs;
+  }
+
+  .headerContainer {
+    @apply py-3;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcementBar {
+    @apply py-1.5;
+  }
+
+  .announcementText {
+    @apply text-xs leading-tight;
+  }
+
+  .logoIcon {
+    @apply text-2xl;
+  }
+
+  .logoMain {
+    @apply text-lg;
+  }
 }

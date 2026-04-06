@@ -7,7 +7,7 @@ function Footer() {
       <div className={styles.footerContent}>
         <div className={styles.footerGrid}>
           <div>
-            <h3 className={styles.footerTitle}>💻 LaptopStore</h3>
+            <h3 className={styles.footerTitle}>LaptopStore</h3>
             <p className={styles.footerText}>Your one-stop shop for the best laptops!</p>
           </div>
           <div>
