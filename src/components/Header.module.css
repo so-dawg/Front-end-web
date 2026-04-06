@@ -2,6 +2,7 @@
 
 .header {
   @apply bg-white shadow-md;
+  position: relative;
 }
 
 .headerNav {
@@ -9,11 +10,11 @@
 }
 
 .headerContent {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between gap-4;
 }
 
 .headerLogo {
-  @apply text-2xl font-bold text-blue-600;
+  @apply text-2xl font-bold text-[#262626] whitespace-nowrap;
 }
 
 .headerMenu {
@@ -21,5 +22,110 @@
 }
 
 .headerLink {
-  @apply text-gray-700 hover:text-blue-600 transition;
+  @apply text-[#3F3F46] hover:bg-gray-100 transition font-bold;
+}
+
+/* Search Styles */
+.searchContainer {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+}
+
+.searchForm {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  @apply w-full px-4 py-2 pr-12 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[#262626] font-bold text-[14px];
+}
+
+.searchButton {
+  @apply absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-transparent text-gray-500 hover:bg-gray-100 rounded-md transition cursor-pointer text-[16px] text-black border-none;
+}
+
+/* Dropdown Styles */
+.searchDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  @apply flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200;
+  font-size: 13px;
+  color: #666;
+}
+
+.seeAllButton {
+  @apply text-blue-600 hover:text-blue-700 font-medium cursor-pointer;
+  background: none;
+  border: none;
+  font-size: 13px;
+  padding: 0;
+}
+
+.dropdownList {
+  @apply list-none m-0 p-0 max-h-80 overflow-y-auto;
+}
+
+.dropdownItem {
+  @apply px-4 py-3 cursor-pointer border-b border-gray-100 transition;
+}
+
+.dropdownItem:hover,
+.dropdownItemHighlighted {
+  @apply bg-blue-50;
+}
+
+.dropdownItem:last-child {
+  @apply border-b-0;
+}
+
+.dropdownItemName {
+  @apply font-medium text-gray-900 mb-1;
+  font-size: 14px;
+}
+
+.dropdownItemInfo {
+  @apply flex items-center justify-between;
+  font-size: 12px;
+}
+
+.dropdownItemBrand {
+  @apply text-gray-500 bg-gray-100 px-2 py-1 rounded;
+}
+
+.dropdownItemPrice {
+  @apply text-blue-600 font-semibold;
+}
+
+.noResults {
+  @apply px-4 py-6 text-center;
+}
+
+.noResults p {
+  @apply text-gray-600 mb-3;
+  font-size: 14px;
 }
