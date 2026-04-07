@@ -55,7 +55,9 @@ function Home() {
                   <p className="trending-brand">{product.brand}</p>
                   <h3 className="trending-name">{product.name}</h3>
                   <div className="trending-rating">
-                    <span className="stars">{"★".repeat(Math.floor(product.rating))}</span>
+                    <span className="stars">
+                      {"★".repeat(Math.floor(product.rating))}
+                    </span>
                     <span className="rating-value">{product.rating}</span>
                   </div>
                   <div className="trending-footer">
