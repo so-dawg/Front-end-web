@@ -1,0 +1,76 @@
+@reference "tailwindcss";
+
+.authContainer {
+  min-height: calc(100vh - 200px);
+  @apply flex items-center justify-center p-4 bg-gray-50;
+}
+
+.authCard {
+  @apply bg-white rounded-xl shadow-lg w-full max-w-md p-8;
+}
+
+.authHeader {
+  @apply text-center mb-6;
+}
+
+.authTitle {
+  @apply text-3xl font-bold text-[#262626] mb-2;
+}
+
+.authSubtitle {
+  @apply text-gray-600 text-sm;
+}
+
+.googleButton {
+  @apply w-full flex items-center justify-center gap-3 py-3 px-4 bg-white border-2 border-gray-300 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition cursor-pointer mb-4;
+}
+
+.googleIcon {
+  flex-shrink: 0;
+}
+
+.divider {
+  @apply flex items-center justify-center my-6;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  @apply flex-1 border-t border-gray-300;
+}
+
+.divider span {
+  @apply px-4 text-gray-500 text-sm;
+}
+
+.authForm {
+  @apply flex flex-col gap-4;
+}
+
+.formRow {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.formGroup {
+  @apply flex flex-col gap-2;
+}
+
+.formLabel {
+  @apply font-semibold text-[#262626] text-sm;
+}
+
+.formInput {
+  @apply px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[#262626];
+}
+
+.submitButton {
+  @apply w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition cursor-pointer mt-4;
+}
+
+.authFooter {
+  @apply text-center mt-6 text-sm text-gray-600;
+}
+
+.authLink {
+  @apply text-blue-600 hover:text-blue-700 font-semibold;
+}

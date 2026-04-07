@@ -1,0 +1,119 @@
+@reference "tailwindcss";
+
+.cartContainer {
+  @apply min-h-screen bg-gray-50 py-12 px-4;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cartTitle {
+  @apply text-4xl font-bold text-[#262626] mb-8;
+}
+
+.emptyCart {
+  @apply bg-white rounded-xl shadow-lg p-12 text-center;
+}
+
+.emptyCart svg {
+  @apply mx-auto mb-6;
+}
+
+.emptyCartTitle {
+  @apply text-2xl font-bold text-[#262626] mb-2;
+}
+
+.emptyCartText {
+  @apply text-gray-600 mb-6;
+}
+
+.shopNowButton {
+  @apply inline-block py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition;
+}
+
+.cartContent {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+.cartItems {
+  @apply lg:col-span-2 flex flex-col gap-4;
+}
+
+.cartItem {
+  @apply bg-white rounded-xl shadow-lg p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4;
+}
+
+.cartItemImage {
+  @apply flex-shrink-0 w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center;
+}
+
+.cartItemDetails {
+  @apply flex-1;
+}
+
+.cartItemName {
+  @apply font-bold text-[#262626] mb-1;
+}
+
+.cartItemSpecs {
+  @apply text-sm text-gray-500 mb-1;
+}
+
+.cartItemPrice {
+  @apply text-blue-600 font-semibold;
+}
+
+.cartItemQuantity {
+  @apply flex items-center gap-2;
+}
+
+.quantityButton {
+  @apply w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded font-bold cursor-pointer transition border-none text-lg;
+}
+
+.quantityText {
+  @apply font-semibold text-[#262626] w-8 text-center;
+}
+
+.cartItemSubtotal {
+  @apply text-right;
+}
+
+.subtotalLabel {
+  @apply text-sm text-gray-500 mb-1;
+}
+
+.subtotalAmount {
+  @apply font-bold text-[#262626];
+}
+
+.removeButton {
+  @apply flex items-center gap-2 text-red-600 hover:text-red-700 font-medium cursor-pointer bg-transparent border-none transition;
+}
+
+.cartSummary {
+  @apply bg-white rounded-xl shadow-lg p-6 h-fit sticky top-4;
+}
+
+.summaryTitle {
+  @apply text-2xl font-bold text-[#262626] mb-4;
+}
+
+.summaryRow {
+  @apply flex justify-between items-center py-3 border-b border-gray-200;
+}
+
+.freeShipping {
+  @apply text-green-600 font-semibold;
+}
+
+.summaryDivider {
+  @apply border-t-2 border-gray-300 my-4;
+}
+
+.summaryTotal {
+  @apply flex justify-between items-center py-3 text-xl font-bold text-[#262626];
+}
+
+.checkoutButton {
+  @apply w-full py-4 px-6 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition cursor-pointer mt-4;
+}

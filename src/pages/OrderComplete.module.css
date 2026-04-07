@@ -1,0 +1,68 @@
+@reference "tailwindcss";
+
+.orderContainer {
+  min-height: calc(100vh - 200px);
+  @apply flex items-center justify-center p-4 bg-gray-50;
+}
+
+.orderCard {
+  @apply bg-white rounded-xl shadow-lg w-full max-w-lg p-12 text-center;
+}
+
+.successIcon {
+  @apply mb-6;
+}
+
+.successIcon svg {
+  @apply mx-auto;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.orderTitle {
+  @apply text-4xl font-bold text-[#262626] mb-4;
+}
+
+.orderMessage {
+  @apply text-gray-600 text-lg mb-6;
+}
+
+.orderNumber {
+  @apply bg-blue-50 rounded-lg p-6 mb-6;
+}
+
+.orderNumberLabel {
+  @apply text-sm text-gray-600 mb-2;
+}
+
+.orderNumberValue {
+  @apply text-2xl font-bold text-blue-600;
+}
+
+.orderInfo {
+  @apply mb-8;
+}
+
+.orderInfoText {
+  @apply text-gray-600 text-sm;
+}
+
+.orderActions {
+  @apply flex flex-col gap-4;
+}
+
+.continueShoppingButton {
+  @apply py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition;
+}
+
+.backHomeButton {
+  @apply py-3 px-6 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition;
+}

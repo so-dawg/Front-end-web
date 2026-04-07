@@ -18,11 +18,13 @@
 }
 
 .headerMenu {
-  @apply flex space-x-6 list-none m-0 p-0;
+  @apply flex space-x-6 list-none m-0 p-0 items-center;
 }
 
 .headerLink {
   @apply text-[#3F3F46] hover:bg-gray-100 transition font-bold;
+  display: flex;
+  align-items: center;
 }
 
 /* Search Styles */
@@ -128,4 +130,108 @@
 .noResults p {
   @apply text-gray-600 mb-3;
   font-size: 14px;
+}
+
+/* Sign In Dropdown Styles */
+.signInWrapper {
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.signInToggle {
+  @apply flex items-center gap-1 cursor-pointer hover:bg-gray-100 transition rounded text-[#3F3F46] font-bold;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.signInToggle svg:first-child {
+  flex-shrink: 0;
+}
+
+.signInToggle span {
+  @apply font-bold;
+}
+
+.dropdownArrow {
+  transition: transform 0.2s ease;
+}
+
+.signInWrapper:hover .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.signInDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownFade 0.2s ease;
+  min-width: 280px;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signInDropdownContent {
+  @apply p-6;
+}
+
+.signInDropdownTitle {
+  @apply text-xl font-bold text-[#262626] mb-2 text-center;
+}
+
+.signInDropdownSubtitle {
+  @apply text-sm text-gray-600 mb-4 text-center;
+}
+
+.signInDropdownButtons {
+  @apply flex flex-col gap-3;
+}
+
+.signInDropdownButton {
+  @apply w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition cursor-pointer;
+  border: none;
+}
+
+.signInDropdownButton:hover {
+  @apply bg-blue-700;
+}
+
+.signUpDropdownButton {
+  @apply w-full py-3 px-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition cursor-pointer;
+}
+
+.signUpDropdownButton:hover {
+  @apply bg-blue-50;
+}
+
+/* Cart Link Styles */
+.cartLink {
+  @apply text-[#3F3F46] hover:bg-gray-100 transition font-bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+}
+
+.cartBadge {
+  @apply absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center;
 }

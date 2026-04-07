@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
+  };
+
   return (
     <div className="product-card">
       <div className="product-image">
@@ -15,7 +24,14 @@ function ProductCard({ product }) {
       <p className={product.inStock ? "product-stock-in" : "product-stock-out"}>
         {product.inStock ? "In Stock" : "Out of Stock"}
       </p>
-      <Link to={`/product/${product.id}`} className="btn-primary btn-block">
+      <button
+        onClick={handleAddToCart}
+        disabled={!product.inStock}
+        className="btn-primary btn-block mb-2"
+      >
+        Add to Cart
+      </button>
+      <Link to={`/product/${product.id}`} className="btn-secondary btn-block">
         View Details
       </Link>
     </div>

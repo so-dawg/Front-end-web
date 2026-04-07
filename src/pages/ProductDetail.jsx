@@ -1,8 +1,12 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
+import { useCart } from "../context/CartContext";
+import styles from "./ProductDetail.module.css";
 
 function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
   const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) {
@@ -15,6 +19,15 @@ function ProductDetail() {
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
+  const handleBuyNow = () => {
+    addToCart(product);
+    navigate("/checkout");
+  };
 
   return (
     <div className="product-detail-section">
@@ -60,14 +73,22 @@ function ProductDetail() {
               </div>
             </dl>
           </div>
-          <Link to="/checkout">
+          <div className={styles.productButtons}>
             <button
+              onClick={handleAddToCart}
               disabled={!product.inStock}
-              className={`btn-primary btn-block py-3 text-lg ${!product.inStock ? "opacity-50 cursor-not-allowed" : ""}`}
+              className={styles.addToCartButton}
             >
-              {product.inStock ? "Buy now" : "Out of Stock"}
+              Add to Cart
             </button>
-          </Link>
+            <button
+              onClick={handleBuyNow}
+              disabled={!product.inStock}
+              className={styles.buyNowButton}
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
       </div>
     </div>

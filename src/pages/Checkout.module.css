@@ -1,0 +1,87 @@
+@reference "tailwindcss";
+
+.checkoutContainer {
+  @apply min-h-screen bg-gray-50 py-12 px-4;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkoutTitle {
+  @apply text-4xl font-bold text-[#262626] mb-8;
+}
+
+.checkoutContent {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.paymentForm {
+  @apply bg-white rounded-xl shadow-lg p-8;
+}
+
+.formSubtitle {
+  @apply text-2xl font-bold text-[#262626] mb-6;
+}
+
+.form {
+  @apply flex flex-col gap-5;
+}
+
+.formGroup {
+  @apply flex flex-col gap-2;
+}
+
+.formLabel {
+  @apply font-semibold text-[#262626] text-sm;
+}
+
+.formInput {
+  @apply px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[#262626];
+}
+
+.formRow {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.confirmButton {
+  @apply w-full py-4 px-6 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition cursor-pointer mt-4;
+}
+
+.orderSummary {
+  @apply bg-white rounded-xl shadow-lg p-8 h-fit sticky top-4;
+}
+
+.summaryTitle {
+  @apply text-2xl font-bold text-[#262626] mb-6;
+}
+
+.summaryItems {
+  @apply flex flex-col gap-4;
+}
+
+.summaryItem {
+  @apply flex justify-between items-center;
+}
+
+.summaryItemInfo {
+  @apply flex flex-col;
+}
+
+.summaryItemName {
+  @apply font-semibold text-[#262626];
+}
+
+.summaryItemQty {
+  @apply text-sm text-gray-500;
+}
+
+.summaryItemPrice {
+  @apply font-bold text-[#262626];
+}
+
+.summaryDivider {
+  @apply border-t-2 border-gray-300 my-4;
+}
+
+.summaryTotal {
+  @apply flex justify-between items-center py-3 text-xl font-bold text-[#262626];
+}
