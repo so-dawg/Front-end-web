@@ -13,6 +13,16 @@
   @apply flex items-center justify-between gap-4;
 }
 
+/* Right section container (desktop menu + mobile icons) */
+.rightSection {
+  @apply flex items-center gap-4;
+}
+
+/* Mobile icons container (hamburger + cart) */
+.mobileIcons {
+  @apply flex items-center gap-2;
+}
+
 .headerLogo {
   @apply text-2xl font-bold text-[#262626] whitespace-nowrap;
 }
@@ -234,4 +244,165 @@
 
 .cartBadge {
   @apply absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center;
+}
+
+/* Mobile Menu Toggle Button */
+.mobileMenuToggle {
+  display: none;
+  @apply p-2 bg-transparent border-none cursor-pointer hover:bg-gray-100 rounded-md transition;
+}
+
+/* Desktop Menu - visible on desktop, hidden on mobile */
+.desktopMenu {
+  @apply flex space-x-6 list-none m-0 p-0 items-center;
+}
+
+/* Mobile Menu - hidden on desktop */
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuList {
+  @apply list-none m-0 p-0;
+}
+
+.mobileSignIn {
+  display: none;
+}
+
+/* Responsive Design - Mobile First Approach */
+@media (max-width: 768px) {
+  .headerContent {
+    @apply flex items-center gap-2;
+    justify-content: space-between;
+  }
+
+  /* Logo - fixed left */
+  .headerLogo {
+    flex-shrink: 0;
+  }
+
+  /* Mobile icons container */
+  .mobileIcons {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Hide desktop menu on mobile */
+  .desktopMenu {
+    display: none;
+  }
+
+  /* Show hamburger menu on mobile */
+  .mobileMenuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Show and center search bar on mobile - between logo and icons */
+  .searchContainer {
+    display: block !important;
+    flex: 1;
+    min-width: 0;
+    max-width: 50%;
+  }
+
+  .searchForm {
+    width: 100%;
+  }
+
+  .searchInput {
+    @apply w-full py-2 px-3;
+  }
+
+  /* Hide desktop sign-in dropdown on mobile */
+  .signInWrapper {
+    display: none;
+  }
+
+  /* Mobile menu styles */
+  .mobileMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    animation: slideDown 0.3s ease;
+  }
+
+  .mobileMenu.mobileMenuOpen {
+    display: block;
+  }
+
+  .mobileMenuList {
+    @apply flex-col space-x-0 space-y-0;
+  }
+
+  .mobileMenuList li {
+    width: 100%;
+  }
+
+  .headerLink {
+    @apply block py-4 px-6 text-base border-b border-gray-100;
+  }
+
+  .headerLink:hover {
+    @apply bg-gray-50;
+  }
+
+  /* Mobile sign-in section */
+  .mobileSignIn {
+    display: block;
+    @apply p-6;
+  }
+
+  .mobileSignInContent {
+    @apply flex flex-col gap-3;
+  }
+
+  .mobileSignInButton {
+    @apply w-full py-3 px-4 bg-blue-600 text-white text-center font-semibold rounded-lg hover:bg-blue-700 transition no-underline;
+  }
+
+  .mobileSignUpButton {
+    @apply w-full py-3 px-4 bg-white text-blue-600 text-center font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition no-underline;
+  }
+
+  /* Adjust logo size */
+  .headerLogo {
+    @apply text-xl;
+  }
+
+  /* Adjust cart link */
+  .cartLink {
+    @apply p-2;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet breakpoint (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .searchContainer {
+    max-width: 350px;
+  }
+
+  .headerMenu {
+    @apply space-x-4;
+  }
 }
