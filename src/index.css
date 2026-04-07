@@ -99,6 +99,9 @@
 .product-image-lg {
   @apply bg-gray-200 rounded-lg h-96 flex items-center justify-center;
 }
+.product-image-media {
+  @apply w-full h-full object-cover rounded-lg;
+}
 .product-name {
   @apply font-semibold mb-2;
 }

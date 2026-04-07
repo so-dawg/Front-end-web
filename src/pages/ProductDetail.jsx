@@ -36,7 +36,11 @@ function ProductDetail() {
       </Link>
       <div className="product-detail-grid">
         <div className="product-image-lg">
-          <span className="text-9xl text-gray-400">Laptop</span>
+          {product.picture ? (
+            <img src={product.picture} alt={product.name} className="product-image-media" />
+          ) : (
+            <span className="text-9xl text-gray-400">Laptop</span>
+          )}
         </div>
         <div>
           <h1 className="text-3xl font-bold mb-2">{product.name}</h1>

@@ -1,4 +1,56 @@
-export const products = [
+const productImageModules = import.meta.glob("../Assets/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+
+const assetEntries = Object.entries(productImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, image]) => {
+    const filename = path.split("/").pop()?.replace(/\.(jpg|jpeg|png|webp)$/i, "") || "";
+    const tokens = filename
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+
+    return { image, tokens };
+  });
+
+const productTokenSet = (text) =>
+  new Set(
+    text
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+  );
+
+const pickProductPicture = (product, index) => {
+  if (assetEntries.length === 0) return undefined;
+
+  const productTokens = productTokenSet(`${product.brand} ${product.name}`);
+  let bestMatch = null;
+  let bestScore = -1;
+
+  for (const asset of assetEntries) {
+    let score = 0;
+    for (const token of asset.tokens) {
+      if (productTokens.has(token)) score += 1;
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = asset;
+    }
+  }
+
+  if (bestScore > 0 && bestMatch) return bestMatch.image;
+  return assetEntries[index % assetEntries.length].image;
+};
+
+const productsBase = [
   {
     id: 1,
     name: "Dell XPS 15 9520",
@@ -1600,3 +1652,8 @@ export const products = [
     rating: 4.1,
   },
 ];
+
+export const products = productsBase.map((product, index) => ({
+  ...product,
+  picture: pickProductPicture(product, index),
+}));
