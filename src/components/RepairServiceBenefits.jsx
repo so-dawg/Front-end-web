@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/RepairServiceBenefits.css";
 
 const RepairServiceBenefits = () => {
+  const navigate = useNavigate();
+  
   const features = [
     {
       icon: (
@@ -219,7 +222,10 @@ const RepairServiceBenefits = () => {
                 Sign into your LazyStore account to book a repair and enjoy
                 fast, reliable service from our certified technicians.
               </p>
-              <button className="repair-benefits__banner-btn">
+              <button 
+                className="repair-benefits__banner-btn"
+                onClick={() => navigate("/submit-repair")}
+              >
                 Let&apos;s start
               </button>
             </div>

@@ -10,6 +10,7 @@ import SignIn from "./pages/SignIn";
 import CreateAccount from "./pages/CreateAccount";
 import ContactUs from "./pages/ContactUs";
 import Cart from "./pages/Cart";
+import SubmitRepair from "./pages/SubmitRepair";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/create-account" element={<CreateAccount />} />
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/submit-repair" element={<SubmitRepair />} />
             </Routes>
           </main>
           <Footer />
