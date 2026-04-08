@@ -1,0 +1,88 @@
+Website All Component Diagram
+=============================
+
+main.jsx
+|
++-- StrictMode
+	|
+	+-- App
+		|
+		+-- CartProvider (CartContext)
+			|
+			+-- Router
+				|
+				+-- Header
+				|   |
+				|   +-- Search form + dropdown list (inline UI)
+				|   +-- Desktop nav links (inline UI)
+				|   +-- Sign-in dropdown (inline UI)
+				|   +-- Mobile menu (inline UI)
+				|
+				+-- main
+				|   |
+				|   +-- Routes
+				|       |
+				|       +-- Home
+				|       |   |
+				|       |   +-- Slider (react-slick)
+				|       |   +-- Trending product cards (inline)
+				|       |   +-- Feature cards (inline)
+				|       |   +-- Featured product cards (inline)
+				|       |   +-- Newsletter block (inline)
+				|       |
+				|       +-- Shop
+				|       |   |
+				|       |   +-- Filter
+				|       |   +-- ProductCard (mapped list)
+				|       |   +-- Empty-state block (inline)
+				|       |
+				|       +-- ProductDetail
+				|       |   |
+				|       |   +-- Product specs block (inline)
+				|       |   +-- Add to cart + buy now buttons (inline)
+				|       |
+				|       +-- Cart
+				|       |   |
+				|       |   +-- Empty cart block (inline)
+				|       |   +-- Cart items list (inline)
+				|       |   +-- Order summary block (inline)
+				|       |
+				|       +-- Checkout
+				|       |   |
+				|       |   +-- Payment form (inline)
+				|       |   +-- Order summary list (inline)
+				|       |
+				|       +-- OrderComplete
+				|       |   |
+				|       |   +-- Success card (inline)
+				|       |   +-- Action links (inline)
+				|       |
+				|       +-- SignIn
+				|       |   |
+				|       |   +-- Google sign-in button (inline)
+				|       |   +-- Sign-in form (inline)
+				|       |
+				|       +-- CreateAccount
+				|       |   |
+				|       |   +-- Google sign-up button (inline)
+				|       |   +-- Create account form (inline)
+				|       |
+				|       +-- ContactUs
+				|           |
+				|           +-- Contact form (inline)
+				|           +-- Contact info cards (inline)
+				|
+				+-- Footer
+
+Core Shared Modules
+-------------------
+- CartContext: provides cartItems, addToCart, removeFromCart, updateQuantity, clearCart, getCartTotal, getCartCount.
+- useCart consumers: Header, ProductCard, ProductDetail, Cart, Checkout.
+- products data consumers: Header, Home, Shop, ProductDetail.
+
+Reusable Components Directory
+-----------------------------
+- Header
+- Footer
+- Filter
+- ProductCard

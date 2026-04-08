@@ -1,8 +1,16 @@
 import styles from "../style/Filter.module.css";
 
 function Filter({ onFilterChange, selectedCategory, selectedBrand, priceRange }) {
-  const categories = ["all", "hotdeals", "trending"];
+  const categories = ["all", "hotdeals", "trending", "gaming", "office"];
   const brands = ["all", "Dell", "Apple", "HP", "Lenovo", "ASUS", "Acer", "MSI", "Razer", "Samsung", "LG"];
+
+  const categoryLabel = {
+    all: "All",
+    hotdeals: "Hot Deals",
+    trending: "Trending",
+    gaming: "Gaming",
+    office: "Office",
+  };
 
   return (
     <div className={styles.filterCard}>
@@ -11,7 +19,7 @@ function Filter({ onFilterChange, selectedCategory, selectedBrand, priceRange })
           <label className={styles.filterLabel}>Category</label>
           <select value={selectedCategory} onChange={(e) => onFilterChange("category", e.target.value)} className={styles.input}>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat === "hotdeals" ? "Hot Deals" : cat === "trending" ? "Trending" : cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+              <option key={cat} value={cat}>{categoryLabel[cat] || cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
             ))}
           </select>
         </div>

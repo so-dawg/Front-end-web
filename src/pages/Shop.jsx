@@ -9,8 +9,50 @@ import TrendingProduct from "../components/TrendingProduct";
 import Filter from "../components/Filter";
 
 function Shop() {
+  const normalizeCategory = (category) => {
+    if (!category) return "all";
+    if (category === "gamming") return "gaming";
+    if (category === "laptop") return "all";
+    return category;
+  };
+
+  const isGamingLaptop = (product) => {
+    const text = `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
+    return (
+      text.includes("gaming") ||
+      text.includes("rog") ||
+      text.includes("legion") ||
+      text.includes("tuf") ||
+      text.includes("predator") ||
+      text.includes("nitro") ||
+      text.includes("geforce rtx") ||
+      text.includes("geforce gtx") ||
+      text.includes("alienware") ||
+      text.includes("raider") ||
+      text.includes("katana")
+    );
+  };
+
+  const isOfficeLaptop = (product) => {
+    const text = `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
+    return (
+      !isGamingLaptop(product) &&
+      (
+        text.includes("thinkpad") ||
+        text.includes("elitebook") ||
+        text.includes("probook") ||
+        text.includes("latitude") ||
+        text.includes("vostro") ||
+        text.includes("expertbook") ||
+        text.includes("business") ||
+        text.includes("office") ||
+        text.includes("work")
+      )
+    );
+  };
+
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "all");
+  const [selectedCategory, setSelectedCategory] = useState(normalizeCategory(searchParams.get("category")));
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
   const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
@@ -18,7 +60,7 @@ function Shop() {
   // Update search query and category when URL changes
   useEffect(() => {
     const query = searchParams.get("search") || "";
-    const category = searchParams.get("category") || "all";
+    const category = normalizeCategory(searchParams.get("category"));
     setSearchQuery(query);
     setSelectedCategory(category);
   }, [searchParams]);
@@ -46,6 +88,8 @@ function Shop() {
   const getCategoryProducts = () => {
     if (selectedCategory === "hotdeals") return hotDeals;
     if (selectedCategory === "trending") return trendingLaptops;
+    if (selectedCategory === "gaming") return products.filter(isGamingLaptop);
+    if (selectedCategory === "office") return products.filter(isOfficeLaptop);
     return products;
   };
 
@@ -89,6 +133,8 @@ function Shop() {
   const getPageTitle = () => {
     if (selectedCategory === "hotdeals") return "Hot Deals";
     if (selectedCategory === "trending") return "Trending Laptops";
+    if (selectedCategory === "gaming") return "Gaming Laptops";
+    if (selectedCategory === "office") return "Office Laptops";
     return "Shop Laptops";
   };
 

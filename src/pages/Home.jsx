@@ -46,7 +46,7 @@ function Home() {
       title: "Save Up to 30%",
       subtitle: "Limited-time offers on top-rated laptops",
       cta: "View Deals",
-      ctaLink: "/shop",
+      ctaLink: "/shop?category=hotdeals",
     },
     {
       image: laptop3,
@@ -62,7 +62,7 @@ function Home() {
       title: "Work Smarter",
       subtitle: "Professional laptops designed for productivity",
       cta: "Browse Business",
-      ctaLink: "/shop",
+      ctaLink: "/shop?category=office",
     },
     {
       image: laptop5,
