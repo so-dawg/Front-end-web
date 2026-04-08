@@ -404,6 +404,24 @@
   margin-bottom: 0 !important;
 }
 
+/* Product card action row */
+.product-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.product-card__actions .btn-primary,
+.product-card__actions .btn-secondary {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 0 !important;
+}
+
 /* Fix stock/status text spacing before actions */
 .product-stock-in,
 .product-stock-out {

@@ -28,16 +28,18 @@ function ProductCard({ product }) {
       <p className={product.inStock ? "product-stock-in" : "product-stock-out"}>
         {product.inStock ? "In Stock" : "Out of Stock"}
       </p>
-      <button
-        onClick={handleAddToCart}
-        disabled={!product.inStock}
-        className="btn-primary btn-block mb-2"
-      >
-        Add to Cart
-      </button>
-      <Link to={`/product/${product.id}`} className="btn-secondary btn-block">
-        View Details
-      </Link>
+      <div className="product-card__actions">
+        <button
+          onClick={handleAddToCart}
+          disabled={!product.inStock}
+          className="btn-primary"
+        >
+          Add to Cart
+        </button>
+        <Link to={`/product/${product.id}`} className="btn-secondary">
+          View Details
+        </Link>
+      </div>
     </div>
   );
 }
