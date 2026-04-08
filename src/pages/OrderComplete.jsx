@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./OrderComplete.module.css";
+import styles from "../css/OrderComplete.module.css";
 
 function OrderComplete() {
   const orderNumber = Math.floor(Math.random() * 1000000);

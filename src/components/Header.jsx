@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
-import styles from "./Header.module.css";
+import styles from "../css/Header.module.css";
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState("");

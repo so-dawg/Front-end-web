@@ -1,4 +1,4 @@
-import styles from "./Filter.module.css";
+import styles from "../css/Filter.module.css";
 
 function Filter({ onFilterChange, selectedCategory, selectedBrand, priceRange }) {
   const categories = ["all", "laptop"];

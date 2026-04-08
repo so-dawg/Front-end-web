@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./SignIn.module.css";
+import styles from "../css/SignIn.module.css";
 
 function SignIn() {
   const [email, setEmail] = useState("");

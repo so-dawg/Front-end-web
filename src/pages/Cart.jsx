@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import styles from "./Cart.module.css";
+import styles from "../css/Cart.module.css";
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal } = useCart();
