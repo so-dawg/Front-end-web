@@ -322,6 +322,11 @@
   transform: translateY(-4px);
 }
 
+.trending-badge {
+  @apply absolute top-3 right-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+}
+
 .trending-info {
   @apply p-4;
 }

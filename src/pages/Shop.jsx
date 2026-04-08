@@ -1,7 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { products } from "../data/products";
+import { hotDeals } from "../data/hotdeals";
+import { trendingLaptops } from "../data/trending";
 import ProductCard from "../components/ProductCard";
+import DiscountProduct from "../components/DiscountProduct";
+import TrendingProduct from "../components/TrendingProduct";
 import Filter from "../components/Filter";
 
 function Shop() {
@@ -23,12 +27,21 @@ function Shop() {
     if (type === "price") setPriceRange(value);
   };
 
+  // Get products based on category
+  const getCategoryProducts = () => {
+    if (selectedCategory === "hotdeals") return hotDeals;
+    if (selectedCategory === "trending") return trendingLaptops;
+    return products;
+  };
+
+  const categoryProducts = getCategoryProducts();
+
   const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
+    return categoryProducts.filter((product) => {
       // Filter by search query
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
-        const matchesSearch = 
+        const matchesSearch =
           product.name.toLowerCase().includes(query) ||
           product.brand.toLowerCase().includes(query) ||
           product.specs.processor.toLowerCase().includes(query) ||
@@ -37,32 +50,47 @@ function Shop() {
         if (!matchesSearch) return false;
       }
 
-      if (selectedCategory !== "all" && product.category !== selectedCategory)
-        return false;
       if (selectedBrand !== "all" && product.brand !== selectedBrand)
         return false;
       if (priceRange !== "all") {
-        if (priceRange === "under500" && product.price >= 500) return false;
+        const productPrice = product.discountPrice || product.price;
+        if (priceRange === "under500" && productPrice >= 500) return false;
         if (
           priceRange === "500-1000" &&
-          (product.price < 500 || product.price >= 1000)
+          (productPrice < 500 || productPrice >= 1000)
         )
           return false;
         if (
           priceRange === "1000-1500" &&
-          (product.price < 1000 || product.price >= 1500)
+          (productPrice < 1000 || productPrice >= 1500)
         )
           return false;
-        if (priceRange === "over1500" && product.price < 1500) return false;
+        if (priceRange === "over1500" && productPrice < 1500) return false;
       }
       return true;
     });
-  }, [searchQuery, selectedCategory, selectedBrand, priceRange]);
+  }, [searchQuery, selectedBrand, priceRange, categoryProducts]);
+
+  const getPageTitle = () => {
+    if (selectedCategory === "hotdeals") return "Hot Deals";
+    if (selectedCategory === "trending") return "Trending Laptops";
+    return "Shop Laptops";
+  };
+
+  const renderProductCard = (product) => {
+    if (selectedCategory === "hotdeals") {
+      return <DiscountProduct key={product.id} product={product} />;
+    }
+    if (selectedCategory === "trending") {
+      return <TrendingProduct key={product.id} product={product} />;
+    }
+    return <ProductCard key={product.id} product={product} />;
+  };
 
   return (
-    <div className="shop-section">
+    <div className={`shop-section ${selectedCategory === "hotdeals" ? "discount-section" : ""} ${selectedCategory === "trending" ? "trending-section" : ""}`}>
       <div className="container-custom">
-        <h1 className="page-title">Shop Laptops</h1>
+        <h1 className={`page-title ${selectedCategory === "hotdeals" ? "text-red-600" : ""} ${selectedCategory === "trending" ? "text-blue-600" : ""}`}>{getPageTitle()}</h1>
         {searchQuery && (
           <div className="search-active mb-4 flex items-center gap-2">
             <span className="text-gray-600">Searching for:</span>
@@ -79,7 +107,7 @@ function Shop() {
           </div>
         )}
         <p className="page-subtitle">
-          Showing {filteredProducts.length} of {products.length} laptops
+          Showing {filteredProducts.length} of {categoryProducts.length} laptops
         </p>
 
         <Filter
@@ -91,9 +119,7 @@ function Shop() {
 
         {filteredProducts.length > 0 ? (
           <div className="grid-products">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {filteredProducts.map((product) => renderProductCard(product))}
           </div>
         ) : (
           <div className="shop-empty">

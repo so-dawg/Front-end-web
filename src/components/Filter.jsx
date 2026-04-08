@@ -1,7 +1,7 @@
 import styles from "../style/Filter.module.css";
 
 function Filter({ onFilterChange, selectedCategory, selectedBrand, priceRange }) {
-  const categories = ["all", "laptop"];
+  const categories = ["all", "hotdeals", "trending"];
   const brands = ["all", "Dell", "Apple", "HP", "Lenovo", "ASUS", "Acer", "MSI", "Razer", "Samsung", "LG"];
 
   return (
@@ -11,7 +11,7 @@ function Filter({ onFilterChange, selectedCategory, selectedBrand, priceRange })
           <label className={styles.filterLabel}>Category</label>
           <select value={selectedCategory} onChange={(e) => onFilterChange("category", e.target.value)} className={styles.input}>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+              <option key={cat} value={cat}>{cat === "hotdeals" ? "Hot Deals" : cat === "trending" ? "Trending" : cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
             ))}
           </select>
         </div>
