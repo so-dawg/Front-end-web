@@ -76,7 +76,7 @@ const RepairServiceBenefits = () => {
         </svg>
       ),
       title: "2-years Warranty",
-      description: "Experience more confidence with a 90-day repair warranty.",
+      description: "Experience more confidence with a 2-years repair warranty.",
     },
     {
       icon: (
