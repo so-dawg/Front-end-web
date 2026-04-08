@@ -14,7 +14,7 @@ function Footer() {
             <h4 className={styles.footerHeading}>Quick Links</h4>
             <ul className={styles.footerLinks}>
               <li><a href="/" className={styles.footerLink}>Home</a></li>
-              <li><a href="/shop" className={styles.footerLink}>Shop Laptops</a></li>
+              <li><a href="/shop" className={styles.footerLink}>Shop Product</a></li>
             </ul>
           </div>
           <div>
