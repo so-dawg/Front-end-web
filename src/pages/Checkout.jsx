@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import styles from "../css/Checkout.module.css";
+import styles from "../style/Checkout.module.css";
 
 function Checkout() {
   const { cartItems, getCartTotal, clearCart } = useCart();

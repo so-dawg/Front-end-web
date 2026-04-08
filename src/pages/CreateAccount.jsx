@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../css/CreateAccount.module.css";
+import styles from "../style/CreateAccount.module.css";
 
 function CreateAccount() {
   const [formData, setFormData] = useState({

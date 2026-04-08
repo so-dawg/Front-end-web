@@ -45,11 +45,11 @@ function DiscountProduct({ product }) {
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="btn-primary btn-block mb-2"
+            className="btn-primary"
           >
             Add to Cart
           </button>
-          <Link to={`/product/${product.id}`} className="btn-secondary btn-block">
+          <Link to={`/product/${product.id}`} className="btn-secondary">
             View Details
           </Link>
         </div>

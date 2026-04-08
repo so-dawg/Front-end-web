@@ -1,0 +1,352 @@
+/* ===== Latest & Budget Side by Side ===== */
+
+.latest-budget-section {
+  padding: 64px 0;
+  background: #ffffff;
+}
+
+.latest-budget-wrapper {
+  display: flex;
+  gap: 32px;
+}
+
+.latest-column,
+.budget-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.latest-budget-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #191c1f;
+  line-height: 1.2;
+}
+
+.budget-title {
+  color: #16a34a;
+}
+
+/* ===== Card lists (vertical stack) ===== */
+
+.latest-card-list,
+.budget-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Latest Card ===== */
+
+.latest-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.latest-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.latest-card__image {
+  width: 180px;
+  min-height: 160px;
+  flex-shrink: 0;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.latest-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.latest-card__placeholder {
+  font-size: 1.5rem;
+  color: #9ca3af;
+}
+
+.latest-card__info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.latest-card__brand {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+}
+
+.latest-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.latest-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.latest-card__rating .stars {
+  color: #f59e0b;
+  font-size: 0.875rem;
+}
+
+.latest-card__rating .rating-value {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.latest-card__specs {
+  margin-bottom: 10px;
+}
+
+.latest-card__specs .spec-row {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.latest-card__specs .spec-label {
+  color: #9ca3af;
+  font-weight: 500;
+  min-width: 48px;
+}
+
+.latest-card__specs .spec-value {
+  color: #374151;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.latest-card__price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+.latest-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: nowrap;
+}
+
+.latest-card__actions .btn-primary,
+.latest-card__actions .btn-secondary {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===== Budget Card ===== */
+
+.budget-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #bbf7d0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.budget-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: #4ade80;
+}
+
+.budget-card__image {
+  width: 180px;
+  min-height: 160px;
+  flex-shrink: 0;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.budget-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.budget-card__placeholder {
+  font-size: 1.5rem;
+  color: #86efac;
+}
+
+.budget-card__info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.budget-card__brand {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+}
+
+.budget-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.budget-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.budget-card__rating .stars {
+  color: #f59e0b;
+  font-size: 0.875rem;
+}
+
+.budget-card__rating .rating-value {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.budget-card__specs {
+  margin-bottom: 10px;
+}
+
+.budget-card__specs .spec-row {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.budget-card__specs .spec-label {
+  color: #9ca3af;
+  font-weight: 500;
+  min-width: 48px;
+}
+
+.budget-card__specs .spec-value {
+  color: #374151;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.budget-card__price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #16a34a;
+  margin: 0 0 10px;
+}
+
+.budget-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: nowrap;
+}
+
+.budget-card__actions .btn-primary,
+.budget-card__actions .btn-secondary {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 960px) {
+  .latest-budget-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .latest-card,
+  .budget-card {
+    flex-direction: column;
+  }
+
+  .latest-card__image,
+  .budget-card__image {
+    width: 100%;
+    height: 200px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .latest-budget-section {
+    padding: 40px 0;
+  }
+
+  .latest-budget-title {
+    font-size: 22px;
+  }
+
+  .latest-card__actions .btn-primary,
+  .latest-card__actions .btn-secondary,
+  .budget-card__actions .btn-primary,
+  .budget-card__actions .btn-secondary {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+}

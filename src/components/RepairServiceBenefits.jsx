@@ -1,5 +1,5 @@
 import React from "react";
-import "./RepairServiceBenefits.css";
+import "../style/RepairServiceBenefits.css";
 
 const RepairServiceBenefits = () => {
   const features = [
@@ -54,7 +54,7 @@ const RepairServiceBenefits = () => {
       ),
       title: "Guaranteed Repairs",
       description:
-        "Samsung certified experts deliver authorized repair services.",
+        "Our certified technicians deliver authorized repair services you can trust.",
     },
     {
       icon: (
@@ -75,9 +75,8 @@ const RepairServiceBenefits = () => {
           />
         </svg>
       ),
-      title: "90-day Warranty",
-      description:
-        "Experience more confidence with a 90-day repair warranty.",
+      title: "2-years Warranty",
+      description: "Experience more confidence with a 90-day repair warranty.",
     },
     {
       icon: (
@@ -90,12 +89,7 @@ const RepairServiceBenefits = () => {
             strokeWidth="2.5"
             fill="none"
           />
-          <circle
-            cx="24"
-            cy="24"
-            r="3"
-            fill="#191C1F"
-          />
+          <circle cx="24" cy="24" r="3" fill="#191C1F" />
           <path
             d="M24 10V16"
             stroke="#191C1F"
@@ -148,25 +142,27 @@ const RepairServiceBenefits = () => {
       ),
       title: "Genuine Parts",
       description:
-        "Your product will be repaired using Samsung genuine parts.",
+        "Your product will be repaired using original manufacturer parts.",
     },
   ];
 
   return (
     <section className="repair-benefits">
       <div className="repair-benefits__container">
-        <h2 className="repair-benefits__title">Benefits of Pro Repair Service</h2>
+        <h2 className="repair-benefits__title">
+          Benefits of Pro Repair Service
+        </h2>
 
         <div className="repair-benefits__grid">
           {/* Left: 2x2 feature cards */}
           <div className="repair-benefits__cards">
             {features.map((feature, index) => (
               <div className="repair-benefits__card" key={index}>
-                <div className="repair-benefits__card-icon">
-                  {feature.icon}
-                </div>
+                <div className="repair-benefits__card-icon">{feature.icon}</div>
                 <h3 className="repair-benefits__card-title">{feature.title}</h3>
-                <p className="repair-benefits__card-desc">{feature.description}</p>
+                <p className="repair-benefits__card-desc">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -201,7 +197,13 @@ const RepairServiceBenefits = () => {
                   strokeWidth="3"
                   strokeLinecap="round"
                 />
-                <circle cx="24" cy="10" r="5" stroke="white" strokeWidth="2.5" />
+                <circle
+                  cx="24"
+                  cy="10"
+                  r="5"
+                  stroke="white"
+                  strokeWidth="2.5"
+                />
                 <path
                   d="M40 5L46 10L40 15"
                   stroke="white"
@@ -214,8 +216,8 @@ const RepairServiceBenefits = () => {
                 Request a Repair
               </h3>
               <p className="repair-benefits__banner-desc">
-                Sign into your Samsung Account to begin enjoying many benefits
-                including managing your repair requests.
+                Sign into your LazyStore account to book a repair and enjoy
+                fast, reliable service from our certified technicians.
               </p>
               <button className="repair-benefits__banner-btn">
                 Let&apos;s start

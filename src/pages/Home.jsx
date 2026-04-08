@@ -9,6 +9,8 @@ import laptop4 from "../Assets/Dell_XPS_15_9520.jpeg";
 import laptop5 from "../Assets/HP_Spectre_x360.jpg";
 import { products } from "../data/products";
 import DiscountProduct from "../components/DiscountProduct";
+import RepairServiceBenefits from "../components/RepairServiceBenefits";
+import LatestAndBudget from "../components/LatestAndBudget";
 import { useCart } from "../context/CartContext";
 
 function Home() {
@@ -77,9 +79,7 @@ function Home() {
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 4);
 
-  const recommendedProducts = products
-    .filter((p) => p.inStock)
-    .slice(0, 12);
+  const recommendedProducts = products.filter((p) => p.inStock).slice(0, 12);
 
   const discountProducts = products
     .filter((p) => p.discountPrice && p.inStock)
@@ -193,24 +193,30 @@ function Home() {
                   >
                     {product.inStock ? "In Stock" : "Out of Stock"}
                   </p>
-                  <button
-                    className="btn-primary btn-block mb-2"
-                    disabled={!product.inStock}
-                  >
-                    Add to Cart
-                  </button>
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="btn-secondary btn-block"
-                  >
-                    View Details
-                  </Link>
+                  <div className="trending-card__actions">
+                    <button
+                      className="btn-primary"
+                      disabled={!product.inStock}
+                    >
+                      Add to Cart
+                    </button>
+                    <Link
+                      to={`/product/${product.id}`}
+                      className="btn-secondary"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <LatestAndBudget products={products} />
+
+      <RepairServiceBenefits />
 
       <section className="featured">
         <div className="container-custom">
@@ -246,7 +252,9 @@ function Home() {
                   <div className="recommended-specs-full">
                     <div className="spec-row">
                       <span className="spec-label">Processor:</span>
-                      <span className="spec-value">{product.specs?.processor}</span>
+                      <span className="spec-value">
+                        {product.specs?.processor}
+                      </span>
                     </div>
                     <div className="spec-row">
                       <span className="spec-label">RAM:</span>
@@ -254,22 +262,26 @@ function Home() {
                     </div>
                     <div className="spec-row">
                       <span className="spec-label">Storage:</span>
-                      <span className="spec-value">{product.specs?.storage}</span>
+                      <span className="spec-value">
+                        {product.specs?.storage}
+                      </span>
                     </div>
                     <div className="spec-row">
                       <span className="spec-label">Display:</span>
-                      <span className="spec-value">{product.specs?.display}</span>
+                      <span className="spec-value">
+                        {product.specs?.display}
+                      </span>
                     </div>
                     <div className="spec-row">
                       <span className="spec-label">Graphics:</span>
-                      <span className="spec-value">{product.specs?.graphics}</span>
+                      <span className="spec-value">
+                        {product.specs?.graphics}
+                      </span>
                     </div>
                   </div>
                   <p
                     className={
-                      product.inStock
-                        ? "product-stock-in"
-                        : "product-stock-out"
+                      product.inStock ? "product-stock-in" : "product-stock-out"
                     }
                   >
                     {product.inStock ? "In Stock" : "Out of Stock"}
