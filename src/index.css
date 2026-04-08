@@ -327,6 +327,29 @@
   box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
 }
 
+.trending-image {
+  @apply bg-gray-200 rounded-lg overflow-hidden;
+  height: 200px;
+}
+
+.trending-image .product-image-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.trending-card .product-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.trending-card .product-image .product-image-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .trending-info {
   @apply p-4;
 }
@@ -379,6 +402,12 @@
   text-align: center;
   white-space: nowrap;
   margin-bottom: 0 !important;
+}
+
+/* Fix stock/status text spacing before actions */
+.product-stock-in,
+.product-stock-out {
+  margin-bottom: 8px !important;
 }
 
 /* ===== DISCOUNT SECTION ===== */

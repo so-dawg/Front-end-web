@@ -10,19 +10,34 @@ import Filter from "../components/Filter";
 
 function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "all");
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
   const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
 
-  // Update search query when URL changes
+  // Update search query and category when URL changes
   useEffect(() => {
     const query = searchParams.get("search") || "";
+    const category = searchParams.get("category") || "all";
     setSearchQuery(query);
+    setSelectedCategory(category);
   }, [searchParams]);
 
   const handleFilterChange = (type, value) => {
-    if (type === "category") setSelectedCategory(value);
+    if (type === "category") {
+      setSelectedCategory(value);
+      if (value !== "all") {
+        setSearchParams((prev) => {
+          prev.set("category", value);
+          return prev;
+        });
+      } else {
+        setSearchParams((prev) => {
+          prev.delete("category");
+          return prev;
+        });
+      }
+    }
     if (type === "brand") setSelectedBrand(value);
     if (type === "price") setPriceRange(value);
   };

@@ -117,7 +117,7 @@ function Home() {
           <div className="container-custom">
             <div className="section-header">
               <h2 className="section-title"> Hot Deals</h2>
-              <Link to="/shop" className="view-all-link">
+              <Link to="/shop?category=hotdeals" className="view-all-link">
                 View All Deals <span className="arrow">→</span>
               </Link>
             </div>
@@ -156,13 +156,14 @@ function Home() {
         <div className="container-custom">
           <div className="section-header">
             <h2 className="section-title">Trending Now</h2>
-            <Link to="/shop" className="view-all-link">
+            <Link to="/shop?category=trending" className="view-all-link">
               View All <span className="arrow">→</span>
             </Link>
           </div>
           <div className="grid-4">
             {trendingProducts.map((product) => (
               <div key={product.id} className="trending-card">
+                <div className="trending-badge">Trending</div>
                 <div className="product-image">
                   {product.picture ? (
                     <img
