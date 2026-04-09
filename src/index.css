@@ -224,10 +224,20 @@
 }
 
 .newsletter-form {
-  @apply max-w-md mx-auto flex gap-4;
+  @apply max-w-xl mx-auto flex gap-3 items-center;
+  position: relative;
+}
+.newsletter-icon {
+  position: absolute;
+  left: 1rem;
+  color: #6b7280;
+  pointer-events: none;
 }
 .newsletter-input {
-  @apply flex-1;
+  @apply flex-1 pl-12 pr-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-white focus:bg-white/20 transition-all;
+}
+.newsletter-btn {
+  @apply flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-white/90 transition-all whitespace-nowrap;
 }
 
 .shop-empty {

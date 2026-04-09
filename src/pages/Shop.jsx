@@ -16,6 +16,12 @@ function Shop() {
     return category;
   };
 
+  const isLatestProduct = (product) => {
+    // Get the latest products (first 20 products as newest arrivals)
+    const latestIds = products.slice(0, 20).map((p) => p.id);
+    return latestIds.includes(product.id);
+  };
+
   const isGamingLaptop = (product) => {
     const text = `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
     return (
@@ -90,6 +96,7 @@ function Shop() {
     if (selectedCategory === "trending") return trendingLaptops;
     if (selectedCategory === "gaming") return products.filter(isGamingLaptop);
     if (selectedCategory === "office") return products.filter(isOfficeLaptop);
+    if (selectedCategory === "latest") return products.filter(isLatestProduct);
     return products;
   };
 
@@ -135,6 +142,7 @@ function Shop() {
     if (selectedCategory === "trending") return "Trending Laptops";
     if (selectedCategory === "gaming") return "Gaming Laptops";
     if (selectedCategory === "office") return "Office Laptops";
+    if (selectedCategory === "latest") return "Latest Arrivals";
     return "Shop Laptops";
   };
 

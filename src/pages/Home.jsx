@@ -38,7 +38,7 @@ function Home() {
       title: "Premium Laptops",
       subtitle: "Discover the latest in performance and innovation",
       cta: "Shop Now",
-      ctaLink: "/shop",
+      ctaLink: "/shop?category=latest",
     },
     {
       image: laptop2,
@@ -54,7 +54,7 @@ function Home() {
       title: "Dominate the Game",
       subtitle: "High-performance gaming laptops built for victory",
       cta: "Explore Gaming",
-      ctaLink: "/shop",
+      ctaLink: "/shop?category=gaming",
     },
     {
       image: laptop4,
@@ -319,12 +319,20 @@ function Home() {
             Get the latest updates on new products and upcoming sales
           </p>
           <div className="newsletter-form">
+            <svg className="newsletter-icon" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor">
+              <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+            </svg>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               className="input newsletter-input"
             />
-            <button className="btn-secondary">Subscribe</button>
+            <button className="btn-secondary newsletter-btn">
+              <span>Subscribe</span>
+              <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+                <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
