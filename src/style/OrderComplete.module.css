@@ -5,15 +5,28 @@
   @apply flex items-center justify-center p-4 bg-gray-50;
 }
 
-.orderCard {
-  @apply bg-white rounded-xl shadow-lg w-full max-w-lg p-12 text-center;
+.receiptWrapper {
+  @apply w-full max-w-2xl flex flex-col items-center gap-6;
 }
 
-.successIcon {
-  @apply mb-6;
+.receipt {
+  @apply bg-white rounded-xl shadow-lg w-full p-8 md:p-12;
+  font-family: 'Courier New', monospace;
 }
 
-.successIcon svg {
+.receiptHeader {
+  @apply text-center mb-8 pb-6 border-b-2 border-dashed border-gray-300;
+}
+
+.receiptTitle {
+  @apply text-4xl font-bold text-[#262626] mb-2 tracking-wider;
+}
+
+.receiptLogo {
+  @apply mb-4;
+}
+
+.receiptLogo svg {
   @apply mx-auto;
   animation: scaleIn 0.5s ease;
 }
@@ -27,42 +40,179 @@
   }
 }
 
-.orderTitle {
-  @apply text-4xl font-bold text-[#262626] mb-4;
+.receiptSubtitle {
+  @apply text-gray-600 text-lg font-medium;
 }
 
-.orderMessage {
-  @apply text-gray-600 text-lg mb-6;
+.receiptSection {
+  @apply mb-6;
 }
 
-.orderNumber {
-  @apply bg-blue-50 rounded-lg p-6 mb-6;
+.receiptInfo {
+  @apply flex flex-col gap-3;
 }
 
-.orderNumberLabel {
-  @apply text-sm text-gray-600 mb-2;
+.receiptInfoRow {
+  @apply flex justify-between items-center;
 }
 
-.orderNumberValue {
+.receiptInfoLabel {
+  @apply text-sm text-gray-600 font-medium;
+}
+
+.receiptInfoValue {
+  @apply text-sm font-semibold text-[#262626];
+}
+
+.receiptDivider {
+  @apply border-t-2 border-dashed border-gray-300 my-6;
+}
+
+.receiptItems {
+  @apply mb-6;
+}
+
+.receiptItemsTitle {
+  @apply text-xl font-bold text-[#262626] mb-4 tracking-wider;
+}
+
+.receiptTable {
+  @apply w-full;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.receiptTable thead tr {
+  @apply border-b-2 border-[#262626];
+}
+
+.receiptTableHeader {
+  @apply text-left py-3 px-2 text-sm font-bold text-[#262626];
+}
+
+.receiptTableHeaderCenter {
+  @apply text-center py-3 px-2 text-sm font-bold text-[#262626];
+}
+
+.receiptTableHeaderRight {
+  @apply text-right py-3 px-2 text-sm font-bold text-[#262626];
+}
+
+.receiptTableCell {
+  @apply py-3 px-2 text-sm text-[#262626];
+}
+
+.receiptTableCellCenter {
+  @apply py-3 px-2 text-sm text-[#262626] text-center;
+}
+
+.receiptTableCellRight {
+  @apply py-3 px-2 text-sm font-semibold text-[#262626] text-right;
+}
+
+.receiptTable tbody tr {
+  @apply border-b border-gray-200;
+}
+
+.receiptTable tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.receiptTotals {
+  @apply flex flex-col gap-2;
+}
+
+.receiptTotalRow {
+  @apply flex justify-between items-center py-2;
+}
+
+.receiptTotalRow span:first-child {
+  @apply text-gray-600;
+}
+
+.receiptTotalRow span:last-child {
+  @apply font-semibold text-[#262626];
+}
+
+.receiptTotalRowGrand {
+  @apply flex justify-between items-center py-3 border-t-2 border-[#262626] mt-2;
+}
+
+.receiptTotalRowGrand span:first-child {
+  @apply text-lg font-bold text-[#262626];
+}
+
+.receiptTotalRowGrand span:last-child {
   @apply text-2xl font-bold text-blue-600;
 }
 
-.orderInfo {
-  @apply mb-8;
+.receiptFooter {
+  @apply text-center mt-8 pt-6 border-t-2 border-dashed border-gray-300;
 }
 
-.orderInfoText {
+.receiptThankYou {
+  @apply text-xl font-bold text-[#262626] mb-2;
+}
+
+.receiptNote {
   @apply text-gray-600 text-sm;
 }
 
-.orderActions {
-  @apply flex flex-col gap-4;
+.printActions {
+  @apply flex flex-col gap-4 w-full;
+}
+
+.printButton {
+  @apply py-3 px-6 bg-[#262626] text-white font-semibold rounded-lg hover:bg-[#1a1a1a] transition flex items-center justify-center gap-2;
 }
 
 .continueShoppingButton {
-  @apply py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition;
+  @apply py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition text-center;
 }
 
 .backHomeButton {
-  @apply py-3 px-6 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition;
+  @apply py-3 px-6 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition text-center;
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .receipt, .receipt * {
+    visibility: visible;
+  }
+  
+  .receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20px;
+  }
+  
+  .printActions {
+    display: none !important;
+  }
+  
+  .receiptDivider,
+  .receiptHeader,
+  .receiptFooter {
+    border-color: #000;
+  }
+  
+  .receiptTable thead tr {
+    border-color: #000;
+  }
+  
+  .receiptTable tbody tr {
+    border-color: #ccc;
+  }
+  
+  .receiptTotalRowGrand {
+    border-color: #000;
+  }
 }

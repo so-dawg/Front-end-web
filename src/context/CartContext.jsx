@@ -16,9 +16,20 @@ export function CartProvider({ children }) {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [lastOrder, setLastOrder] = useState(() => {
+    const savedOrder = localStorage.getItem("lastOrder");
+    return savedOrder ? JSON.parse(savedOrder) : null;
+  });
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    if (lastOrder) {
+      localStorage.setItem("lastOrder", JSON.stringify(lastOrder));
+    }
+  }, [lastOrder]);
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
@@ -54,6 +65,24 @@ export function CartProvider({ children }) {
     setCartItems([]);
   };
 
+  const placeOrder = (paymentInfo) => {
+    const order = {
+      id: `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+      items: [...cartItems],
+      total: getCartTotal(),
+      paymentInfo: {
+        cardName: paymentInfo.cardName,
+        cardNumber: `****${paymentInfo.cardNumber.slice(-4)}`,
+      },
+      orderDate: new Date().toISOString(),
+      status: "confirmed",
+    };
+
+    setLastOrder(order);
+    setCartItems([]);
+    return order;
+  };
+
   const getCartTotal = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
@@ -73,8 +102,10 @@ export function CartProvider({ children }) {
         removeFromCart,
         updateQuantity,
         clearCart,
+        placeOrder,
         getCartTotal,
         getCartCount,
+        lastOrder,
       }}
     >
       {children}
