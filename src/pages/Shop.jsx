@@ -8,55 +8,37 @@ import DiscountProduct from "../components/DiscountProduct";
 import TrendingProduct from "../components/TrendingProduct";
 import Filter from "../components/Filter";
 
+const CATEGORY_ALIASES = { gamming: "gaming", laptop: "all" };
+const normalizeCategory = (category) =>
+  !category ? "all" : CATEGORY_ALIASES[category] ?? category;
+
+const GAMING_KEYWORDS = [
+  "gaming", "rog", "legion", "tuf", "predator", "nitro",
+  "geforce rtx", "geforce gtx", "alienware", "raider", "katana",
+];
+const OFFICE_KEYWORDS = [
+  "thinkpad", "elitebook", "probook", "latitude",
+  "vostro", "expertbook", "business", "office", "work",
+];
+
+const productSearchText = (product) =>
+  `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
+
+const isGamingLaptop = (product) => {
+  const text = productSearchText(product);
+  return GAMING_KEYWORDS.some((kw) => text.includes(kw));
+};
+
+const isOfficeLaptop = (product) => {
+  if (isGamingLaptop(product)) return false;
+  const text = productSearchText(product);
+  return OFFICE_KEYWORDS.some((kw) => text.includes(kw));
+};
+
+const LATEST_IDS = new Set(products.slice(0, 20).map((p) => p.id));
+const isLatestProduct = (product) => LATEST_IDS.has(product.id);
+
 function Shop() {
-  const normalizeCategory = (category) => {
-    if (!category) return "all";
-    if (category === "gamming") return "gaming";
-    if (category === "laptop") return "all";
-    return category;
-  };
-
-  const isLatestProduct = (product) => {
-    // Get the latest products (first 20 products as newest arrivals)
-    const latestIds = products.slice(0, 20).map((p) => p.id);
-    return latestIds.includes(product.id);
-  };
-
-  const isGamingLaptop = (product) => {
-    const text = `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
-    return (
-      text.includes("gaming") ||
-      text.includes("rog") ||
-      text.includes("legion") ||
-      text.includes("tuf") ||
-      text.includes("predator") ||
-      text.includes("nitro") ||
-      text.includes("geforce rtx") ||
-      text.includes("geforce gtx") ||
-      text.includes("alienware") ||
-      text.includes("raider") ||
-      text.includes("katana")
-    );
-  };
-
-  const isOfficeLaptop = (product) => {
-    const text = `${product.name} ${product.specs.graphics} ${product.specs.processor} ${product.specs.display}`.toLowerCase();
-    return (
-      !isGamingLaptop(product) &&
-      (
-        text.includes("thinkpad") ||
-        text.includes("elitebook") ||
-        text.includes("probook") ||
-        text.includes("latitude") ||
-        text.includes("vostro") ||
-        text.includes("expertbook") ||
-        text.includes("business") ||
-        text.includes("office") ||
-        text.includes("work")
-      )
-    );
-  };
-
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState(normalizeCategory(searchParams.get("category")));
   const [selectedBrand, setSelectedBrand] = useState("all");

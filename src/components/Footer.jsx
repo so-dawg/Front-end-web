@@ -13,11 +13,11 @@ function Footer() {
           <div>
             <h4 className={styles.footerHeading}>Quick Links</h4>
             <ul className={styles.footerLinks}>
-              <li><a href="/" className={styles.footerLink}>Home</a></li>
-              <li><a href="/shop" className={styles.footerLink}>Shop Product</a></li>
-              <li><a href="" className={styles.footerLink}>Hot Deal</a></li>
-              <li><a href="" className={styles.footerLink}>Trending Now</a></li>
-              <li><a href="" className={styles.footerLink}></a></li>
+              <li><Link to="/" className={styles.footerLink}>Home</Link></li>
+              <li><Link to="/shop" className={styles.footerLink}>Shop Product</Link></li>
+              <li><Link to="/shop?category=hotdeals" className={styles.footerLink}>Hot Deals</Link></li>
+              <li><Link to="/shop?category=trending" className={styles.footerLink}>Trending Now</Link></li>
+              <li><Link to="/contact-us" className={styles.footerLink}>Contact Us</Link></li>
             </ul>
           </div>
           <div>
@@ -28,7 +28,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className={styles.footerBottom}>© 2024 LaptopStore. All rights reserved.</div>
+        <div className={styles.footerBottom}>© {new Date().getFullYear()} LazyStore. All rights reserved.</div>
       </div>
     </footer>
   );

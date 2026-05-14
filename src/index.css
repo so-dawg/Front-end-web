@@ -39,12 +39,6 @@
 .feature-card {
   @apply bg-white rounded-xl shadow-md p-6 border-2 border-green-500 hover:shadow-lg transition-shadow text-center;
 }
-.btn-secondary {
-  @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition font-medium inline-block text-center;
-}
-.btn-block {
-  @apply w-full block;
-}
 
 .container-custom {
   @apply container mx-auto px-4;

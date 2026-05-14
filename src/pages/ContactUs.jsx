@@ -108,8 +108,8 @@ function ContactUs() {
               </div>
               <h3 className={styles.infoTitle}>Support Email</h3>
               <p className={styles.infoText}>
-                <a href="mailto:support@laptopstore.com" className={styles.infoLink}>
-                  support@laptopstore.com
+                <a href="mailto:support@lazystore.com" className={styles.infoLink}>
+                  support@lazystore.com
                 </a>
               </p>
             </div>

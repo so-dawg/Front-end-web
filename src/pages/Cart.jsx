@@ -3,7 +3,7 @@ import { useCart } from "../context/CartContext";
 import styles from "../style/Cart.module.css";
 
 function Cart() {
-  const { cartItems, removeFromCart, updateQuantity, getCartTotal } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, getCartTotal, getCartCount } = useCart();
   const navigate = useNavigate();
 
   const handleProceedToCheckout = () => {
@@ -85,7 +85,7 @@ function Cart() {
           <h2 className={styles.summaryTitle}>Order Summary</h2>
           
           <div className={styles.summaryRow}>
-            <span>Subtotal ({cartItems.reduce((acc, item) => acc + item.quantity, 0)} items)</span>
+            <span>Subtotal ({getCartCount()} items)</span>
             <span>${getCartTotal().toFixed(2)}</span>
           </div>
           

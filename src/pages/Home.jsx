@@ -9,6 +9,7 @@ import laptop4 from "../Assets/Dell_XPS_15_9520.jpeg";
 import laptop5 from "../Assets/HP_Spectre_x360.jpg";
 import { products } from "../data/products";
 import DiscountProduct from "../components/DiscountProduct";
+import TrendingProduct from "../components/TrendingProduct";
 import RepairServiceBenefits from "../components/RepairServiceBenefits";
 import LatestAndBudget from "../components/LatestAndBudget";
 import { useCart } from "../context/CartContext";
@@ -162,54 +163,7 @@ function Home() {
           </div>
           <div className="grid-4">
             {trendingProducts.map((product) => (
-              <div key={product.id} className="trending-card">
-                <div className="trending-badge">Trending</div>
-                <div className="product-image">
-                  {product.picture ? (
-                    <img
-                      src={product.picture}
-                      alt={product.name}
-                      className="product-image-media"
-                    />
-                  ) : (
-                    <span className="text-4xl text-gray-400">Laptop</span>
-                  )}
-                </div>
-                <div className="trending-info">
-                  <p className="trending-brand">{product.brand}</p>
-                  <h3 className="trending-name">{product.name}</h3>
-                  <div className="trending-rating">
-                    <span className="stars">
-                      {"★".repeat(Math.floor(product.rating))}
-                    </span>
-                    <span className="rating-value">{product.rating}</span>
-                  </div>
-                  <p className="product-price mb-3">
-                    ${product.price.toFixed(2)}
-                  </p>
-                  <p
-                    className={
-                      product.inStock ? "product-stock-in" : "product-stock-out"
-                    }
-                  >
-                    {product.inStock ? "In Stock" : "Out of Stock"}
-                  </p>
-                  <div className="trending-card__actions">
-                    <button
-                      className="btn-primary"
-                      disabled={!product.inStock}
-                    >
-                      Add to Cart
-                    </button>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="btn-secondary"
-                    >
-                      View Details
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <TrendingProduct key={product.id} product={product} />
             ))}
           </div>
         </div>
